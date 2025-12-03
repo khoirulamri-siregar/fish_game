@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧰 Inventory - Pixel Fishing</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="game-header">
+            <h1 class="pixel-title">🧰 INVENTORY</h1>
+            <button class="pixel-btn" onclick="window.location.href='index.html'">
+                ← Back
+            </button>
+        </header>
+
+        <main class="main-content">
+            <div class="inventory-tabs">
+                <button class="tab-btn active" onclick="showTab('fish')">🐟 Fish</button>
+                <button class="tab-btn" onclick="showTab('rods')">🎣 Rods</button>
+                <button class="tab-btn" onclick="showTab('baits')">🪱 Baits</button>
+            </div>
+
+            <div id="fishTab" class="tab-content">
+                <h3>🐟 Fish Caught</h3>
+                <div class="inventory-grid" id="fishGrid">
+                    <!-- Fish will be loaded here -->
+                </div>
+                <button class="pixel-btn" onclick="sellAllFish()">
+                    💰 Sell All Common Fish
+                </button>
+            </div>
+
+            <div id="rodsTab" class="tab-content hidden">
+                <h3>🎣 Fishing Rods</h3>
+                <div id="rodsList"></div>
+            </div>
+
+            <div id="baitsTab" class="tab-content hidden">
+                <h3>🪱 Fishing Baits</h3>
+                <div id="baitsList"></div>
+            </div>
+        </main>
+
+        <nav class="bottom-nav">
+            <button class="nav-btn" onclick="window.location.href='index.html'">
+                <span class="emoji">🏠</span>
+                <span>Home</span>
+            </button>
+            <button class="nav-btn active">
+                <span class="emoji">🧰</span>
+                <span>Inventory</span>
+            </button>
+            <button class="nav-btn" onclick="window.location.href='shop.html'">
+                <span class="emoji">🏬</span>
+                <span>Shop</span>
+            </button>
+            <button class="nav-btn" onclick="window.location.href='leaderboard.html'">
+                <span class="emoji">🏆</span>
+                <span>Leaderboard</span>
+            </button>
+            <button class="nav-btn" onclick="window.location.href='profile.html'">
+                <span class="emoji">⚙️</span>
+                <span>Profile</span>
+            </button>
+        </nav>
+    </div>
+
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <script src="inventory.js"></script>
+</body>
+</html>
