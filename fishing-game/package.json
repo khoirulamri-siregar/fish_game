@@ -1,0 +1,15 @@
+﻿{
+  "name": "pixel-fishing-game",
+  "version": "1.0.0",
+  "description": "Pixel art fishing game",
+  "scripts": {
+    "dev": "vercel dev",
+    "deploy": "vercel --prod"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.0"
+  },
+  "devDependencies": {
+    "@vercel/node": "^3.0.0"
+  }
+}

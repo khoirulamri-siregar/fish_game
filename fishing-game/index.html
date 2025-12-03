@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐠 Pixel Fishing Game</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="game-header">
+            <h1 class="pixel-title">🐟 PIXEL FISHING GAME</h1>
+            <div class="user-info" id="userInfo">
+                <span>Loading...</span>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="welcome-screen">
+                <div class="pixel-art ocean-bg">
+                    <div class="waves"></div>
+                    <div class="boat">
+                        <div class="mast"></div>
+                        <div class="sail"></div>
+                    </div>
+                </div>
+                
+                <div class="game-stats">
+                    <div class="stat-box">
+                        <span class="emoji">💰</span>
+                        <span id="money">500</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="emoji">⭐</span>
+                        <span id="xp">0</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="emoji">🎣</span>
+                        <span id="level">1</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="emoji">🐟</span>
+                        <span id="totalFish">0</span>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn-primary pixel-btn" onclick="startFishing()">
+                        🎣 MULAI MANCING
+                    </button>
+                    <button class="btn-secondary pixel-btn" onclick="navigateTo('inventory')">
+                        🧰 INVENTORY
+                    </button>
+                    <button class="btn-secondary pixel-btn" onclick="navigateTo('shop')">
+                        🏬 SHOP
+                    </button>
+                    <button class="btn-secondary pixel-btn" onclick="navigateTo('leaderboard')">
+                        🏆 LEADERBOARD
+                    </button>
+                    <button class="btn-secondary pixel-btn" onclick="navigateTo('profile')">
+                        ⚙️ PROFILE
+                    </button>
+                </div>
+
+                <!-- Current Equipment -->
+                <div class="equipment-display">
+                    <h3>🎒 Equipment</h3>
+                    <div id="currentEquipment">
+                        <p>Rod: <span id="currentRod">Basic Rod</span></p>
+                        <p>Bait: <span id="currentBait">Basic Bait x10</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fishing Screen (hidden) -->
+            <div id="fishingScreen" class="hidden">
+                <div class="fishing-area">
+                    <div class="water">
+                        <div class="fishing-line"></div>
+                        <div class="bobber"></div>
+                    </div>
+                    <div class="countdown" id="countdown">3</div>
+                    <button class="btn-cancel pixel-btn" onclick="cancelFishing()">
+                        ❌ Cancel
+                    </button>
+                </div>
+            </div>
+
+            <!-- Results Screen (hidden) -->
+            <div id="resultsScreen" class="hidden">
+                <h2 class="result-title">🎉 HASIL MANCING!</h2>
+                <div id="catchResults" class="fish-results"></div>
+                <button class="btn-primary pixel-btn" onclick="closeResults()">
+                    🎣 MANCING LAGI
+                </button>
+            </div>
+        </main>
+
+        <!-- Navigation -->
+        <nav class="bottom-nav">
+            <button class="nav-btn active" onclick="navigateTo('home')">
+                <span class="emoji">🏠</span>
+                <span>Home</span>
+            </button>
+            <button class="nav-btn" onclick="navigateTo('inventory')">
+                <span class="emoji">🧰</span>
+                <span>Inventory</span>
+            </button>
+            <button class="nav-btn" onclick="navigateTo('shop')">
+                <span class="emoji">🏬</span>
+                <span>Shop</span>
+            </button>
+            <button class="nav-btn" onclick="navigateTo('leaderboard')">
+                <span class="emoji">🏆</span>
+                <span>Leaderboard</span>
+            </button>
+            <button class="nav-btn" onclick="navigateTo('profile')">
+                <span class="emoji">⚙️</span>
+                <span>Profile</span>
+            </button>
+        </nav>
+
+        <!-- Notification -->
+        <div id="notification" class="notification hidden">
+            <span id="notificationText"></span>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    <script src="app.js"></script>
+</body>
+</html>
